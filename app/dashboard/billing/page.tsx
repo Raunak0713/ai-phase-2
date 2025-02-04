@@ -7,6 +7,7 @@ import { db } from '@/utils/db';
 import { UserSubscription } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import moment from 'moment';
+import Razorpay from 'razorpay';
 import { UserSubscriptionContext } from '@/app/(context)/UserSubscriptionContext';
 function billing() {
 
@@ -29,7 +30,7 @@ function billing() {
     const options={
       "key":process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       "subscription_id":subId,
-      "name":'Tubeguruji AI Apps',
+      "name":'AI Apps',
       description:'Monthly Subscription',
       handler:async(resp:any)=>{
         console.log(resp);
